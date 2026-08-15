@@ -49,7 +49,7 @@
     main.setAttribute("aria-hidden", "false");
     tryPlayMusic();
 
-    const hold = reducedMotion.matches ? 40 : 3350;
+    const hold = reducedMotion.matches ? 40 : 2600;
     window.setTimeout(() => {
       cover.classList.add("is-leaving");
     }, hold);
@@ -58,7 +58,7 @@
       cover.classList.add("is-gone");
       document.body.classList.add("content-ready");
       document.body.classList.remove("cover-lock");
-    }, hold + (reducedMotion.matches ? 20 : 720));
+    }, hold + (reducedMotion.matches ? 20 : 560));
   };
 
   openButton.addEventListener("click", revealInvite);
@@ -81,6 +81,7 @@
 
   const showRsvp = () => {
     rsvpReturnScroll = window.scrollY;
+    document.body.style.setProperty("--rsvp-scroll", `${-rsvpReturnScroll}px`);
     if (!rsvpFrame.getAttribute("src")) rsvpFrame.src = rsvpFrame.dataset.src;
     document.body.classList.add("form-open");
     if (typeof rsvpDialog.showModal === "function") {
@@ -94,7 +95,14 @@
     rsvpFrame.blur();
     if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
     document.body.classList.remove("form-open");
-    window.requestAnimationFrame(() => window.scrollTo({ top: rsvpReturnScroll, left: 0, behavior: "auto" }));
+    const viewport = document.querySelector('meta[name="viewport"]');
+    const viewportContent = "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover, interactive-widget=resizes-content";
+    viewport?.setAttribute("content", viewportContent);
+    window.requestAnimationFrame(() => {
+      window.scrollTo({ top: rsvpReturnScroll, left: 0, behavior: "auto" });
+      document.documentElement.style.removeProperty("zoom");
+      document.body.style.removeProperty("--rsvp-scroll");
+    });
   };
 
   const hideRsvp = () => {

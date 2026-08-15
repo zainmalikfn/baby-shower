@@ -1,8 +1,9 @@
 <!doctype html>
+<!-- Baby shower invite build: 2026-08-15-v5 -->
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover, interactive-widget=resizes-content">
   <meta name="theme-color" content="#f2c96d">
   <meta name="robots" content="noindex,nofollow">
   <meta name="description" content="Zain and Sahar's baby shower invitation.">
@@ -11,8 +12,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20260815v5">
+  <script src="script.js?v=20260815v5" defer></script>
 </head>
 <body class="cover-lock">
   <div class="ambient-bg" aria-hidden="true"></div>
@@ -28,9 +29,10 @@
   <div class="app-shell">
     <section class="cover" id="cover" aria-labelledby="cover-title">
       <div class="cover-copy">
-        <p class="eyebrow">A very special invitation</p>
-        <h1 id="cover-title">You're<br>Invited</h1>
+        <p class="eyebrow">A little hunny is on the way</p>
+        <h1 id="cover-title"><span>Zain &amp; Sahar's</span><em>Baby Shower</em></h1>
         <span class="cover-ornament" aria-hidden="true"><i></i><b></b><i></i></span>
+        <p class="cover-date">Saturday · 29 August 2026</p>
       </div>
 
       <button class="open-trigger" id="openInvite" type="button" aria-label="Tap to open Zain and Sahar's baby shower invitation">
@@ -43,9 +45,9 @@
           <span class="envelope">
             <span class="envelope-back"></span>
             <span class="letter">
-              <span class="letter-kicker">You're invited</span>
-              <span class="letter-title">A little hunny<br>is on the way</span>
-              <span class="letter-date">29 · 08 · 26</span>
+              <span class="letter-kicker">A little hunny is on the way</span>
+              <span class="letter-title">Zain &amp; Sahar's<br>Baby Shower</span>
+              <span class="letter-date">Zain &amp; Sahar · 29 · 08 · 26</span>
             </span>
             <span class="envelope-flap"></span>
             <span class="envelope-front"></span>
@@ -56,10 +58,6 @@
         </span>
       </button>
 
-      <div class="cover-signoff" aria-hidden="true">
-        <strong>Zain &amp; Sahar's</strong>
-        <span>Baby Shower</span>
-      </div>
     </section>
 
     <main id="mainContent" aria-hidden="true" inert>
@@ -73,7 +71,7 @@
 
         <div class="hero-copy reveal">
           <p class="eyebrow">Please join us to celebrate</p>
-          <h2>A little <em>hunny</em><br>is on the way</h2>
+          <h2>Come celebrate<br><em>with us</em></h2>
           <p class="host-line">Zain &amp; Sahar's Baby Shower</p>
           <p class="welcome-note">An afternoon filled with love, laughter and a little bit of sweetness.</p>
         </div>
@@ -85,7 +83,6 @@
       </section>
 
       <section class="details-section section-pad" id="details">
-        <img class="corner-sprig corner-top-left" src="assets/decor/corner-sprig.svg" alt="" aria-hidden="true">
         <div class="section-heading reveal">
           <span class="tiny-bee" aria-hidden="true"></span>
           <p class="eyebrow">Save the date</p>
@@ -143,11 +140,9 @@
           Add to calendar
         </a>
 
-        <img class="section-divider details-divider reveal" data-parallax="0.014" src="assets/decor/leaf-divider.svg" alt="" aria-hidden="true">
       </section>
 
       <section class="countdown-section section-pad" id="countdown">
-        <img class="corner-sprig corner-top-right" src="assets/decor/corner-sprig.svg" alt="" aria-hidden="true">
         <div class="balloon-space" aria-hidden="true">
           <span class="balloon-string"></span>
           <img class="balloon-pooh" id="balloonPooh" src="assets/images/pooh-balloon.webp" alt="">
@@ -165,11 +160,9 @@
           <div class="time-block"><strong id="seconds">00</strong><span>Secs</span></div>
         </div>
         <p class="countdown-message" id="countdownMessage"></p>
-        <img class="section-divider countdown-divider reveal" data-parallax="0.012" src="assets/decor/leaf-divider.svg" alt="" aria-hidden="true">
       </section>
 
       <section class="rsvp-section section-pad" id="rsvp">
-        <img class="corner-sprig corner-middle-left" src="assets/decor/corner-sprig.svg" alt="" aria-hidden="true">
         <div class="rsvp-heading-wrap reveal">
           <div class="section-heading rsvp-heading">
             <p class="eyebrow">Kindly reply</p>
@@ -179,7 +172,6 @@
         </div>
 
         <div class="rsvp-card reveal">
-          <img class="rsvp-friends" src="assets/images/pooh-piglet-hug.webp" alt="Pooh hugging Piglet">
           <div class="rsvp-card-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M12 21s-8-4.7-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.3-8 11-8 11Z"/></svg>
           </div>
@@ -194,6 +186,7 @@
             Open RSVP form
           </button>
           <p class="form-note">Please enter the names of everyone attending when you complete the form.</p>
+          <img class="rsvp-friends" src="assets/images/pooh-piglet-hug.webp" alt="Pooh hugging Piglet">
         </div>
       </section>
 
