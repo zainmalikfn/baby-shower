@@ -1405,3 +1405,9 @@ body.form-open {
   .rsvp-heading-wrap .rsvp-friends { right: -36px; }
   .rsvp-intro h3 { font-size: 1.55rem; }
 }
+
+/* Keep the RSVP characters visible for the full RSVP section. */
+.rsvp-section.section-in-view .rsvp-friends {
+  opacity: 1;
+  transform: translate(0,0) rotate(1deg) scale(1);
+}
