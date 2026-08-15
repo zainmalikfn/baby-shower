@@ -126,11 +126,9 @@
   if (reducedMotion.matches || !("IntersectionObserver" in window)) {
     revealItems.forEach((item) => item.classList.add("is-visible"));
   } else {
-    const revealObserver = new IntersectionObserver((entries, observer) => {
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
+        entry.target.classList.toggle("is-visible", entry.isIntersecting);
       });
     }, { rootMargin: "0px 0px -8%", threshold: 0.12 });
     revealItems.forEach((item) => revealObserver.observe(item));
@@ -142,7 +140,7 @@
   } else {
     const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add("section-in-view");
+        entry.target.classList.toggle("section-in-view", entry.isIntersecting);
       });
     }, { rootMargin: "-9% 0px -13%", threshold: 0.08 });
     animatedSections.forEach((section) => sectionObserver.observe(section));
