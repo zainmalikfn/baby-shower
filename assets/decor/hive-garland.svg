@@ -19,7 +19,7 @@
     <filter id="soft"><feGaussianBlur stdDeviation=".45"/></filter>
   </defs>
 
-  <g fill="none" stroke="url(#branch)" stroke-linecap="round" opacity=".85" filter="url(#watercolour)">
+  <g fill="none" stroke="url(#branch)" stroke-linecap="round" opacity=".92">
     <path d="M438 205C330 198 246 177 166 140 108 114 59 111 23 124" stroke-width="5"/>
     <path d="M462 205C570 198 654 177 734 140 792 114 841 111 877 124" stroke-width="5"/>
     <path d="M176 143c-13-27-34-47-61-60M236 169c-7-32-23-60-48-82M300 187c0-31-11-59-30-85M363 199c5-27 2-50-10-69" stroke-width="3"/>
@@ -28,7 +28,7 @@
     <path d="M782 84c22 2 38 11 52 28M710 88c17-5 34-2 49 9M630 103c20-6 37-4 51 7M547 130c17-10 33-12 49-6" stroke-width="2.5"/>
   </g>
 
-  <g opacity=".9" filter="url(#watercolour)">
+  <g opacity=".96">
     <g fill="url(#green)">
       <ellipse cx="80" cy="109" rx="27" ry="14" transform="rotate(-25 80 109)"/><ellipse cx="129" cy="117" rx="29" ry="15" transform="rotate(25 129 117)"/>
       <ellipse cx="145" cy="75" rx="28" ry="15" transform="rotate(-38 145 75)"/><ellipse cx="199" cy="101" rx="28" ry="15" transform="rotate(30 199 101)"/>
@@ -51,14 +51,14 @@
     </g>
   </g>
 
-  <g filter="url(#watercolour)">
+  <g>
     <path d="M394 191c4-60 18-112 56-139 38 27 52 79 56 139Z" fill="url(#hive)" stroke="#75552d" stroke-width="3"/>
     <path d="M411 93c26 11 52 11 78 0M403 119c31 13 63 13 94 0M398 147c35 13 69 13 104 0M396 175c36 12 72 12 108 0" fill="none" stroke="#7e5c2f" stroke-width="5" stroke-linecap="round" opacity=".75"/>
     <ellipse cx="450" cy="178" rx="15" ry="12" fill="#554027"/>
     <path d="M441 45c2-17 13-25 23-16 12 11-3 23-14 24" fill="none" stroke="#8b6834" stroke-width="3" stroke-linecap="round"/>
   </g>
 
-  <g fill="#9b6d2d" opacity=".7" filter="url(#soft)">
+  <g fill="#9b6d2d" opacity=".78">
     <circle cx="24" cy="125" r="3"/><circle cx="877" cy="124" r="3"/><circle cx="116" cy="82" r="3"/><circle cx="784" cy="82" r="3"/>
   </g>
 </svg>

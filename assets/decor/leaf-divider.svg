@@ -5,7 +5,7 @@
     <radialGradient id="ochre" cx="35%" cy="20%" r="80%"><stop stop-color="#dec18a"/><stop offset=".65" stop-color="#b08343"/><stop offset="1" stop-color="#8a632f"/></radialGradient>
     <filter id="wc" x="-10%" y="-25%" width="120%" height="150%"><feTurbulence baseFrequency=".021" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.8"/></filter>
   </defs>
-  <g filter="url(#wc)">
+  <g>
     <path d="M403 77C310 80 247 67 177 47 113 28 64 37 26 59M497 77c93 3 156-10 226-30 64-19 113-10 151 12" fill="none" stroke="url(#stem)" stroke-width="4" stroke-linecap="round"/>
     <g fill="none" stroke="#8e7444" stroke-width="2.5" stroke-linecap="round">
       <path d="M83 46 62 22M122 42l-9-28M165 45l8-31M207 56l20-26M252 68l21-31M306 76l15-26M817 46l21-24M778 42l9-28M735 45l-8-31M693 56l-20-26M648 68l-21-31M594 76l-15-26"/>

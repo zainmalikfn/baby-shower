@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <meta name="theme-color" content="#f2c96d">
   <meta name="robots" content="noindex,nofollow">
   <meta name="description" content="Zain and Sahar's baby shower invitation.">
@@ -27,8 +27,6 @@
 
   <div class="app-shell">
     <section class="cover" id="cover" aria-labelledby="cover-title">
-      <img class="cover-sprig cover-sprig-left" src="assets/decor/corner-sprig.svg" alt="" aria-hidden="true">
-      <img class="cover-sprig cover-sprig-right" src="assets/decor/corner-sprig.svg" alt="" aria-hidden="true">
       <div class="cover-copy">
         <p class="eyebrow">A very special invitation</p>
         <h1 id="cover-title">You're<br>Invited</h1>
@@ -65,8 +63,9 @@
     </section>
 
     <main id="mainContent" aria-hidden="true" inert>
-      <section class="hero section-pad" id="welcome" tabindex="-1">
+      <section class="hero section-pad" id="welcome">
         <div class="sun-glow" aria-hidden="true"></div>
+        <img class="section-garland hero-garland reveal" data-parallax="0.008" src="assets/decor/hive-garland.svg" alt="" aria-hidden="true">
         <div class="hero-art-wrap reveal" data-parallax="0.09">
           <span class="scribble scribble-left" aria-hidden="true"></span>
           <img class="hero-art" src="assets/images/pooh-hunny.webp" alt="Pooh enjoying a pot of honey while bees buzz nearby">
@@ -79,17 +78,14 @@
           <p class="welcome-note">An afternoon filled with love, laughter and a little bit of sweetness.</p>
         </div>
 
-        <img class="section-garland hero-garland reveal" data-parallax="0.018" src="assets/decor/hive-garland.svg" alt="" aria-hidden="true">
-
         <a class="scroll-cue" href="#details" aria-label="Scroll to the event details">
-          <span></span>
-          Event details
+          <span>Scroll for event details</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 9 5 5 5-5"/></svg>
         </a>
       </section>
 
       <section class="details-section section-pad" id="details">
         <img class="corner-sprig corner-top-left" src="assets/decor/corner-sprig.svg" alt="" aria-hidden="true">
-        <img class="corner-sprig corner-bottom-right" src="assets/decor/corner-sprig.svg" alt="" aria-hidden="true">
         <div class="section-heading reveal">
           <span class="tiny-bee" aria-hidden="true"></span>
           <p class="eyebrow">Save the date</p>
@@ -132,7 +128,7 @@
               <span class="detail-label">Location</span>
               <strong>Central Hall</strong>
               <span>Ablewell St, Walsall, WS1 2EQ</span>
-              <a href="https://www.google.com/maps/search/?api=1&amp;query=Central+Hall%2C+Ablewell+St%2C+Walsall%2C+WS1+2EQ" target="_blank" rel="noopener">Open in Maps <span aria-hidden="true">↗</span></a>
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Central+Hall%2C+Ablewell+St%2C+Walsall%2C+WS1+2EQ" target="_blank" rel="noopener">Open in Maps <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M19 5l-9 9"/><path d="M17 13v6H5V7h6"/></svg></a>
             </div>
           </div>
 
@@ -180,10 +176,10 @@
             <h2>Will you be joining us?</h2>
             <p>Please RSVP by <strong>Thursday 27 August 2026</strong>.</p>
           </div>
-          <img class="rsvp-friends" src="assets/images/pooh-piglet-hug.webp" alt="Pooh hugging Piglet">
         </div>
 
         <div class="rsvp-card reveal">
+          <img class="rsvp-friends" src="assets/images/pooh-piglet-hug.webp" alt="Pooh hugging Piglet">
           <div class="rsvp-card-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M12 21s-8-4.7-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.3-8 11-8 11Z"/></svg>
           </div>
@@ -196,11 +192,9 @@
           </div>
           <button class="primary-button" id="openRsvp" type="button">
             Open RSVP form
-            <span aria-hidden="true">↗</span>
           </button>
+          <p class="form-note">Please enter the names of everyone attending when you complete the form.</p>
         </div>
-
-        <p class="form-note reveal">Please enter the names of everyone attending when you complete the form.</p>
       </section>
 
       <section class="closing section-pad" id="closing">

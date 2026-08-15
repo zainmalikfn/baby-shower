@@ -15,6 +15,7 @@
   const balloon = document.querySelector("#balloonPooh");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   let inviteOpened = false;
+  let rsvpReturnScroll = 0;
 
   const setMusicState = (playing) => {
     musicToggle.setAttribute("aria-pressed", String(playing));
@@ -48,12 +49,16 @@
     main.setAttribute("aria-hidden", "false");
     tryPlayMusic();
 
-    const delay = reducedMotion.matches ? 60 : 1320;
+    const hold = reducedMotion.matches ? 40 : 3350;
+    window.setTimeout(() => {
+      cover.classList.add("is-leaving");
+    }, hold);
+
     window.setTimeout(() => {
       cover.classList.add("is-gone");
+      document.body.classList.add("content-ready");
       document.body.classList.remove("cover-lock");
-      document.querySelector("#welcome").focus?.({ preventScroll: true });
-    }, delay);
+    }, hold + (reducedMotion.matches ? 20 : 720));
   };
 
   openButton.addEventListener("click", revealInvite);
@@ -75,6 +80,7 @@
   });
 
   const showRsvp = () => {
+    rsvpReturnScroll = window.scrollY;
     if (!rsvpFrame.getAttribute("src")) rsvpFrame.src = rsvpFrame.dataset.src;
     document.body.classList.add("form-open");
     if (typeof rsvpDialog.showModal === "function") {
@@ -84,19 +90,26 @@
     }
   };
 
+  const restoreAfterRsvp = () => {
+    rsvpFrame.blur();
+    if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
+    document.body.classList.remove("form-open");
+    window.requestAnimationFrame(() => window.scrollTo({ top: rsvpReturnScroll, left: 0, behavior: "auto" }));
+  };
+
   const hideRsvp = () => {
     if (typeof rsvpDialog.close === "function" && rsvpDialog.open) {
       rsvpDialog.close();
     } else {
       rsvpDialog.removeAttribute("open");
-      document.body.classList.remove("form-open");
+      restoreAfterRsvp();
     }
   };
 
   openRsvp.addEventListener("click", showRsvp);
   closeRsvp.addEventListener("click", hideRsvp);
-  rsvpDialog.addEventListener("close", () => document.body.classList.remove("form-open"));
-  rsvpDialog.addEventListener("cancel", () => document.body.classList.remove("form-open"));
+  rsvpDialog.addEventListener("close", restoreAfterRsvp);
+  rsvpDialog.addEventListener("cancel", restoreAfterRsvp);
   rsvpDialog.addEventListener("click", (event) => {
     if (event.target === rsvpDialog) hideRsvp();
   });
