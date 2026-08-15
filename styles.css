@@ -1008,6 +1008,80 @@ body.form-open {
   .welcome-note { font-size: .78rem; line-height: 1.42; }
 }
 
+/* v7 – single real-envelope asset and collision-free RSVP intro */
+.envelope {
+  height: auto;
+  aspect-ratio: 3 / 2;
+  filter: drop-shadow(0 18px 24px rgba(69,49,30,.15));
+}
+.envelope-art {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity .32s ease, transform .46s cubic-bezier(.2,.7,.2,1);
+}
+.wax-seal { top: 63.5%; }
+.cover.opening .envelope-art {
+  opacity: 0;
+  transform: scale(.965) translateY(14px);
+}
+.cover.opening .envelope { filter: none; }
+
+.hero-art-wrap { margin: 0 auto 21px; }
+
+.rsvp-card {
+  margin-top: 170px;
+  padding: 42px clamp(24px, 7vw, 32px) 44px;
+}
+.rsvp-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 58%;
+  min-height: 166px;
+  margin: 0 auto 0 0;
+  text-align: center;
+}
+.rsvp-intro .rsvp-card-icon { flex: 0 0 auto; margin: 0 auto 16px; }
+.rsvp-intro .rsvp-card-kicker { margin: 0; }
+.rsvp-intro h3 {
+  margin: 7px 0 0;
+  font-size: clamp(1.6rem, 6.7vw, 1.95rem);
+  line-height: 1.02;
+}
+.rsvp-intro > p:not(.rsvp-card-kicker) {
+  max-width: 220px;
+  margin: 13px auto 0;
+  color: var(--ink-soft);
+  font-size: clamp(.72rem, 2.9vw, .82rem);
+  line-height: 1.5;
+}
+.rsvp-card-fields { margin-top: 28px; }
+.form-note {
+  margin-top: 20px !important;
+  padding: 0 12px;
+  line-height: 1.6 !important;
+}
+
+@media (max-height: 740px) {
+  .hero-art-wrap { margin-bottom: 17px; }
+  .rsvp-card { margin-top: 154px; padding-top: 38px; padding-bottom: 40px; }
+  .rsvp-intro { min-height: 156px; }
+}
+
+@media (max-width: 380px) {
+  .rsvp-heading-wrap .rsvp-friends { right: -36px; }
+  .rsvp-intro { width: 58%; }
+  .rsvp-intro h3 { font-size: 1.55rem; }
+}
+
 .closing-garland { width: 96%; margin: 0 auto 18px; }
 .friends-log { width: 100%; max-width: 430px; margin: 34px auto 0; }
 .music-toggle {
@@ -1255,4 +1329,79 @@ body.form-open {
   .countdown-section { min-height: 570px; padding-top: 98px; padding-bottom: 84px; }
   .rsvp-section { padding-top: 72px; }
   .rsvp-friends { width: min(56vw, 210px); }
+}
+
+/* Final v7 cascade – must remain last. */
+.envelope {
+  height: auto;
+  aspect-ratio: 3 / 2;
+  filter: drop-shadow(0 18px 24px rgba(69,49,30,.15));
+}
+.envelope-art {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity .32s ease, transform .46s cubic-bezier(.2,.7,.2,1);
+}
+.wax-seal { top: 63.5%; }
+.cover.opening .envelope-art {
+  opacity: 0;
+  transform: scale(.965) translateY(14px);
+}
+.cover.opening .envelope { filter: none; }
+
+.hero-art-wrap { margin: 0 auto 21px; }
+
+.rsvp-heading { margin-bottom: 0; }
+.rsvp-card {
+  margin-top: 170px;
+  padding: 42px clamp(24px, 7vw, 32px) 44px;
+  overflow: visible;
+}
+.rsvp-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 58%;
+  min-height: 166px;
+  margin: 0 auto 0 0;
+  text-align: center;
+}
+.rsvp-intro .rsvp-card-icon { flex: 0 0 auto; margin: 0 auto 16px; }
+.rsvp-intro .rsvp-card-kicker { margin: 0; }
+.rsvp-intro h3 {
+  margin: 7px 0 0;
+  font-size: clamp(1.6rem, 6.7vw, 1.95rem);
+  line-height: 1.02;
+}
+.rsvp-intro > p:not(.rsvp-card-kicker) {
+  max-width: 220px;
+  margin: 13px auto 0;
+  color: var(--ink-soft);
+  font-size: clamp(.72rem, 2.9vw, .82rem);
+  line-height: 1.5;
+}
+.rsvp-card-fields { margin-top: 28px; }
+.form-note {
+  margin-top: 20px !important;
+  padding: 0 12px;
+  line-height: 1.6 !important;
+}
+
+@media (max-height: 740px) {
+  .hero-art-wrap { margin-bottom: 17px; }
+  .rsvp-card { margin-top: 154px; padding-top: 38px; padding-bottom: 40px; }
+  .rsvp-intro { min-height: 156px; }
+}
+
+@media (max-width: 380px) {
+  .rsvp-heading-wrap .rsvp-friends { right: -36px; }
+  .rsvp-intro h3 { font-size: 1.55rem; }
 }
