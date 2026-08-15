@@ -7,6 +7,7 @@
   <meta name="robots" content="noindex,nofollow">
   <meta name="description" content="Zain and Sahar's baby shower invitation.">
   <title>Zain &amp; Sahar's Baby Shower</title>
+  <link rel="preload" href="assets/audio/one-summers-day-10min.mp3" as="audio" type="audio/mpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet">
@@ -29,9 +30,9 @@
       <img class="cover-sprig cover-sprig-left" src="assets/decor/corner-sprig.svg" alt="" aria-hidden="true">
       <img class="cover-sprig cover-sprig-right" src="assets/decor/corner-sprig.svg" alt="" aria-hidden="true">
       <div class="cover-copy">
-        <p class="eyebrow">A little hunny is on the way</p>
-        <h1 id="cover-title">Zain &amp; Sahar's<br><em>Baby Shower</em></h1>
-        <p class="cover-date">Saturday · 29 August 2026</p>
+        <p class="eyebrow">A very special invitation</p>
+        <h1 id="cover-title">You're<br>Invited</h1>
+        <span class="cover-ornament" aria-hidden="true"><i></i><b></b><i></i></span>
       </div>
 
       <button class="open-trigger" id="openInvite" type="button" aria-label="Tap to open Zain and Sahar's baby shower invitation">
@@ -56,6 +57,11 @@
           <img class="cover-tigger" src="assets/images/pooh-tigger.webp" alt="">
         </span>
       </button>
+
+      <div class="cover-signoff" aria-hidden="true">
+        <strong>Zain &amp; Sahar's</strong>
+        <span>Baby Shower</span>
+      </div>
     </section>
 
     <main id="mainContent" aria-hidden="true" inert>
@@ -92,6 +98,12 @@
         </div>
 
         <article class="paper-card details-card reveal">
+          <div class="card-invite-title">
+            <strong>Zain &amp; Sahar's</strong>
+            <em>Baby Shower</em>
+            <span aria-hidden="true"><i></i><b></b><i></i></span>
+          </div>
+
           <div class="detail-row">
             <span class="detail-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M7 3v3M17 3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1Z"/></svg>
@@ -171,14 +183,21 @@
           <img class="rsvp-friends" src="assets/images/pooh-piglet-hug.webp" alt="Pooh hugging Piglet">
         </div>
 
-        <div class="form-card reveal">
-          <div class="form-topline" aria-hidden="true"><span></span><i></i><span></span></div>
-          <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLSc6cdlLPS7jx4rZzJ4cKgINp973KDRe1HDrBn0n0_8dUGjVwg/viewform?embedded=true"
-            title="Baby shower RSVP form"
-            loading="lazy">
-            Loading RSVP form…
-          </iframe>
+        <div class="rsvp-card reveal">
+          <div class="rsvp-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-8-4.7-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.3-8 11-8 11Z"/></svg>
+          </div>
+          <p class="rsvp-card-kicker">Please tell us</p>
+          <h3>Who's coming?</h3>
+          <p>Enter the names of everyone attending and let us know whether you can join us.</p>
+          <div class="rsvp-card-fields" aria-hidden="true">
+            <span><b>Your names</b><i>Everyone attending</i></span>
+            <span><b>Attendance</b><i>Yes, I'll be there</i></span>
+          </div>
+          <button class="primary-button" id="openRsvp" type="button">
+            Open RSVP form
+            <span aria-hidden="true">↗</span>
+          </button>
         </div>
 
         <p class="form-note reveal">Please enter the names of everyone attending when you complete the form.</p>
@@ -206,13 +225,32 @@
     </main>
   </div>
 
+  <dialog class="rsvp-dialog" id="rsvpDialog" aria-labelledby="rsvpDialogTitle">
+    <div class="rsvp-dialog-shell">
+      <header class="rsvp-dialog-header">
+        <div>
+          <span>Baby shower</span>
+          <strong id="rsvpDialogTitle">RSVP</strong>
+        </div>
+        <button id="closeRsvp" type="button" aria-label="Close RSVP form">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </header>
+      <iframe
+        id="rsvpFrame"
+        data-src="https://docs.google.com/forms/d/e/1FAIpQLSc6cdlLPS7jx4rZzJ4cKgINp973KDRe1HDrBn0n0_8dUGjVwg/viewform?embedded=true"
+        title="Zain and Sahar's baby shower RSVP form">
+        Loading RSVP form…
+      </iframe>
+    </div>
+  </dialog>
+
   <button class="music-toggle" id="musicToggle" type="button" aria-label="Pause background music" aria-pressed="true">
     <span class="equaliser" aria-hidden="true"><i></i><i></i><i></i></span>
     <span class="music-label">Music</span>
   </button>
 
-  <audio id="bgMusic" loop preload="metadata">
-    <source src="assets/audio/one-summers-day-10min.mp3" type="audio/mpeg">
-  </audio>
+  <p class="sr-only" id="audioStatus" aria-live="polite"></p>
+  <audio id="bgMusic" src="assets/audio/one-summers-day-10min.mp3" loop preload="auto" playsinline webkit-playsinline></audio>
 </body>
 </html>

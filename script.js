@@ -7,6 +7,11 @@
   const audio = document.querySelector("#bgMusic");
   const musicToggle = document.querySelector("#musicToggle");
   const musicLabel = musicToggle.querySelector(".music-label");
+  const audioStatus = document.querySelector("#audioStatus");
+  const openRsvp = document.querySelector("#openRsvp");
+  const closeRsvp = document.querySelector("#closeRsvp");
+  const rsvpDialog = document.querySelector("#rsvpDialog");
+  const rsvpFrame = document.querySelector("#rsvpFrame");
   const balloon = document.querySelector("#balloonPooh");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   let inviteOpened = false;
@@ -14,18 +19,25 @@
   const setMusicState = (playing) => {
     musicToggle.setAttribute("aria-pressed", String(playing));
     musicToggle.setAttribute("aria-label", playing ? "Pause background music" : "Play background music");
-    musicLabel.textContent = playing ? "Music" : "Play";
+    musicLabel.textContent = playing ? "Music" : "Play sound";
+    musicToggle.classList.toggle("needs-start", !playing);
   };
 
   const tryPlayMusic = async () => {
-    audio.volume = 0.42;
+    audio.muted = false;
+    audio.volume = 0.62;
     try {
       await audio.play();
       setMusicState(true);
-    } catch (_) {
+      audioStatus.textContent = "Background music is playing.";
+    } catch (error) {
       setMusicState(false);
+      audioStatus.textContent = "Music did not start automatically. Use the Play sound button.";
+      console.warn("Background music could not start:", error);
     }
   };
+
+  audio.load();
 
   const revealInvite = () => {
     if (inviteOpened) return;
@@ -57,6 +69,37 @@
 
   audio.addEventListener("pause", () => setMusicState(false));
   audio.addEventListener("play", () => setMusicState(true));
+  audio.addEventListener("error", () => {
+    setMusicState(false);
+    audioStatus.textContent = "The background music file could not be loaded.";
+  });
+
+  const showRsvp = () => {
+    if (!rsvpFrame.getAttribute("src")) rsvpFrame.src = rsvpFrame.dataset.src;
+    document.body.classList.add("form-open");
+    if (typeof rsvpDialog.showModal === "function") {
+      rsvpDialog.showModal();
+    } else {
+      rsvpDialog.setAttribute("open", "");
+    }
+  };
+
+  const hideRsvp = () => {
+    if (typeof rsvpDialog.close === "function" && rsvpDialog.open) {
+      rsvpDialog.close();
+    } else {
+      rsvpDialog.removeAttribute("open");
+      document.body.classList.remove("form-open");
+    }
+  };
+
+  openRsvp.addEventListener("click", showRsvp);
+  closeRsvp.addEventListener("click", hideRsvp);
+  rsvpDialog.addEventListener("close", () => document.body.classList.remove("form-open"));
+  rsvpDialog.addEventListener("cancel", () => document.body.classList.remove("form-open"));
+  rsvpDialog.addEventListener("click", (event) => {
+    if (event.target === rsvpDialog) hideRsvp();
+  });
 
   const revealItems = [...document.querySelectorAll(".reveal")];
   if (reducedMotion.matches || !("IntersectionObserver" in window)) {
